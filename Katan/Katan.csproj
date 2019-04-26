@@ -55,14 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CommonLogic\Register.cs" />
-    <Compile Include="Models\Register.cs" />
+    <Compile Include="CommonLogic\KatanVisualAdapter.cs" />
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="Register_2.xaml.cs">
       <DependentUpon>Register_2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\KatanAdapterViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Page Include="Menu.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\wallpaper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Katan.Core\Katan.Core.csproj">
+      <Project>{74a9871d-abf2-4e3e-aca2-5bad9f88ba79}</Project>
+      <Name>Katan.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

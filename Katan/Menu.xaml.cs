@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Katan.ViewModels;
 
 namespace Katan
 {
@@ -23,7 +24,7 @@ namespace Katan
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModels.RegisterViewModel();
+            DataContext = new KatanAdapterViewModel();
         }
     }
 }

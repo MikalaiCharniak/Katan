@@ -11,3 +11,7 @@ D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan.TestConsole\obj\Debug\Kat
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.csproj.CopyComplete
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.exe
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.pdb
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.csprojAssemblyReference.cache
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.csproj.CoreCompileInputs.cache
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.exe
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.pdb

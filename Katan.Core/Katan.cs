@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Katan.Core.Extensions;
 
 namespace Katan.Core
@@ -8,7 +7,7 @@ namespace Katan.Core
     public class Katan
     {
         #region Worker Fields
-        private static readonly int[] _IR = {
+        protected static readonly int[] _IR = {
         1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1,
         0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0,
         1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0,
@@ -26,15 +25,15 @@ namespace Katan.Core
         0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1,
         1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0
         };
-        private static readonly int _key_bits = 80;
-        private static List<int> _key;
-        private List<int> _firstRegister;
-        private List<int> _secondRegister;
-        private int[] _setX;
-        private int[] _setY;
-        private int _firstRegisterCapacity;
-        private int _secondRegisterCapacity;
-        private Version _version;
+        protected static readonly int _key_bits = 80;
+        protected static List<int> _key;
+        protected List<int> _firstRegister;
+        protected List<int> _secondRegister;
+        protected int[] _setX;
+        protected int[] _setY;
+        protected int _firstRegisterCapacity;
+        protected int _secondRegisterCapacity;
+        protected Version _version;
         public Version KatanVersion
         {
             get => _version;
@@ -64,7 +63,7 @@ namespace Katan.Core
         }
 
 
-        private void InitKatan32()
+        protected void InitKatan32()
         {
             _version = Version.Version32;
             _firstRegister = new List<int>();
@@ -75,7 +74,7 @@ namespace Katan.Core
             _setY = new int[6] { 18, 7, 12, 10, 8, 3 };
         }
 
-        private void InitKatan48()
+        protected void InitKatan48()
         {
             _version = Version.Version48;
             _firstRegister = new List<int>();
@@ -87,7 +86,7 @@ namespace Katan.Core
 
         }
 
-        private void InitKatan64()
+        protected void InitKatan64()
         {
             _version = Version.Version64;
             _firstRegister = new List<int>();
@@ -103,7 +102,7 @@ namespace Katan.Core
 
         #region Katan Core Methods
 
-        private void KatanRoundEncription(int round)
+        protected virtual void KatanRoundEncription(int round)
         {
             int k_a = _key[2 * round];
             int k_b = _key[2 * round + 1];
@@ -127,7 +126,7 @@ namespace Katan.Core
             _secondRegister.Insert(0, f_a);
         }
 
-        public List<int> KatanEncryption(List<int> plainTextBits)
+        public virtual List<int> KatanEncryption(List<int> plainTextBits)
         {
             _secondRegister = plainTextBits.Take(_secondRegisterCapacity).ToList();
             _firstRegister = plainTextBits.Skip(_secondRegisterCapacity).ToList();
