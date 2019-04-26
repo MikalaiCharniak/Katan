@@ -172,8 +172,6 @@ namespace Katan.CommonLogic
             SecondRegister = new List<int>();
         }
 
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
