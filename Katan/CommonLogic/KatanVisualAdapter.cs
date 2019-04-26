@@ -60,6 +60,12 @@ namespace Katan.CommonLogic
                 ^ (_secondRegister[_setY[4]] & _secondRegister[_setY[5]])
                 ^ k_b;
 
+            _firstRegister.RemoveAt(_firstRegisterCapacity - 1);
+            _firstRegister.Insert(0, f_b);
+
+            _secondRegister.RemoveAt(_secondRegisterCapacity - 1);
+            _secondRegister.Insert(0, f_a);
+
             KatanRounds.Add(new KatanRound()
             {
                 Round = round,
@@ -67,15 +73,9 @@ namespace Katan.CommonLogic
                 K_B = k_b,
                 F_A = f_a,
                 F_B = f_b,
-                FirstRegister = _firstRegister,
-                SecondRegister = _secondRegister
+                FirstRegister = _firstRegister.ToList(),
+                SecondRegister = _secondRegister.ToList()
             });
-
-            _firstRegister.RemoveAt(_firstRegisterCapacity - 1);
-            _firstRegister.Insert(0, f_b);
-
-            _secondRegister.RemoveAt(_secondRegisterCapacity - 1);
-            _secondRegister.Insert(0, f_a);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

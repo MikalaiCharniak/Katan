@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CommonLogic\KatanVisualAdapter.cs" />
+    <Compile Include="CommonLogic\RelayCommand.cs" />
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
@@ -63,7 +64,6 @@
       <DependentUpon>Register_2.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\KatanAdapterViewModel.cs" />
-    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Page Include="Menu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

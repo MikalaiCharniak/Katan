@@ -6,13 +6,20 @@
         xmlns:local="clr-namespace:Katan"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="KatanaTraining" Height="600" Width="1000">
+        Title="KatanaTraining" Height="700" Width="1200">
     <Window.Background>
         <ImageBrush ImageSource="Resources/wallpaper.jpg"/>
     </Window.Background>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Khaki"/>
+            <Setter Property="BorderBrush" Value="AliceBlue"/>
+        </Style>
+    </Window.Resources>
     <Grid 
                    Height="500" Width="800">
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -23,5 +30,16 @@
         <UserControl Grid.Row="2" Height="100">
             <local:Register_2/>
         </UserControl>
+        <WrapPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center">
+            <Button HorizontalAlignment="Center" 
+             Command="{Binding NextRoundCommand}"
+             Content="Next Round"  Width="100" Height="50" 
+                        BorderThickness="5"
+                        />
+            <Button HorizontalAlignment="Center" 
+             Command="{Binding PreviosRoundCommand}" Margin="0 9 0 0"
+             Content="Previos Round"  Width="100" Height="50"
+                        BorderThickness="5"/>
+        </WrapPanel>
     </Grid>
 </Window>

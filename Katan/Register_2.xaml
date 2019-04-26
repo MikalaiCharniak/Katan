@@ -21,7 +21,7 @@
         </Style>
     </UserControl.Resources>
     <UniformGrid Rows="1"  x:Name="RegisterBlock">
-        <ListView ItemsSource="{Binding CurrentKatanRound.SecondRegister}" Width="800" ScrollViewer.CanContentScroll="True"
+        <ListView ItemsSource="{Binding CurrentKatanRound.SecondRegister, Mode=TwoWay}" Width="800" ScrollViewer.CanContentScroll="True"
                   ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <ListView.ItemsPanel >
                 <ItemsPanelTemplate>
