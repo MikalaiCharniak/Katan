@@ -41,3 +41,5 @@ D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Katan.pdb
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\bin\Debug\Katan.Core.dll
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\bin\Debug\Katan.Core.pdb
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Katan.csproj.CopyComplete
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\ApparatPart.g.cs
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\ApparatPart.baml

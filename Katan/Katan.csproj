@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApparatPart.xaml.cs">
+      <DependentUpon>ApparatPart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CommonLogic\KatanVisualAdapter.cs" />
     <Compile Include="CommonLogic\RelayCommand.cs" />
     <Compile Include="Register.xaml.cs">
@@ -64,6 +67,10 @@
       <DependentUpon>Register_2.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\KatanAdapterViewModel.cs" />
+    <Page Include="ApparatPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Menu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +126,15 @@
       <Project>{74a9871d-abf2-4e3e-aca2-5bad9f88ba79}</Project>
       <Name>Katan.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BoolFunction.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MainScheme.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

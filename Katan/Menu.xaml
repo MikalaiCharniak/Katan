@@ -17,6 +17,9 @@
         </Style>
     </Window.Resources>
     <Grid Name="MainGrid">
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/BoolFunction.jpg" />
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="800"/>
@@ -41,7 +44,7 @@
                 </Label>
             </WrapPanel>
         </Grid>
-        <Grid        Name="RegisterGrid"
+        <Grid  Name="RegisterGrid"
              Grid.Column="1"      Height="500" Width="800">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -52,10 +55,9 @@
             <UserControl Grid.Row="0" Height="100">
                 <local:Register/>
             </UserControl>
-            <TextBlock Grid.Row="1" HorizontalAlignment="Center"
-                       Foreground="Red">
-                Some Text
-            </TextBlock>
+            <WrapPanel Grid.Row="1" >
+                <Image Source="Resources/BoolFunction.jpg" Width="757"/>
+            </WrapPanel>
             <UserControl Grid.Row="2" Height="100">
                 <local:Register_2/>
             </UserControl>

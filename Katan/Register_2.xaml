@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Katan"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="800">
+             d:DesignHeight="100" d:DesignWidth="900">
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="TextBlock.Background" Value="Black"/>
@@ -20,7 +20,7 @@
             <Setter Property="Background" Value="White"/>
         </Style>
     </UserControl.Resources>
-    <UniformGrid Rows="1"  x:Name="RegisterBlock">
+    <UniformGrid Rows="1"  x:Name="RegisterBlock" Width="900">
         <ListView ItemsSource="{Binding CurrentKatanRound.SecondRegister, Mode=TwoWay}" Width="800" ScrollViewer.CanContentScroll="True"
                   ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <ListView.ItemsPanel >
