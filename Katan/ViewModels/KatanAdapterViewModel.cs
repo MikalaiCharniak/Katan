@@ -7,7 +7,6 @@ namespace Katan.ViewModels
 {
     public class KatanAdapterViewModel : INotifyPropertyChanged
     {
-        private int _currentRound = 0;
         private List<int> _exampleBits = new List<int>()
         {
             1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1,
@@ -15,8 +14,18 @@ namespace Katan.ViewModels
         };
 
         #region Observal Props
+        private int _currentRound = 0;
         private KatanVisualAdapter _katan;
         private KatanRound _currentKatanRound;
+        public int CurrentRound
+        {
+            get => _currentRound;
+            set
+            {
+                _currentRound = value;
+                OnPropertyChanged("CurrentRound");
+            }
+        }
         public KatanRound CurrentKatanRound
         {
             get => _currentKatanRound;
@@ -53,7 +62,17 @@ namespace Katan.ViewModels
 
             }
         }
-        private void NextRound() => CurrentKatanRound = _katan.KatanRounds[_currentRound++];
+        private void NextRound()
+        {
+            if (CurrentRound == 253)
+            {
+                CurrentKatanRound = Katan.KatanRounds[CurrentRound];
+            }
+            else
+            {
+                CurrentKatanRound = Katan.KatanRounds[CurrentRound++];
+            }
+        }
 
         private RelayCommand _previosRound;
         public RelayCommand PreviosRoundCommand
@@ -67,7 +86,17 @@ namespace Katan.ViewModels
                     }));
             }
         }
-        private void PreviosRound() => CurrentKatanRound =_katan.KatanRounds[_currentRound--];
+        private void PreviosRound()
+        {
+            if (CurrentRound == 0)
+            {
+                CurrentKatanRound = Katan.KatanRounds[CurrentRound];
+            }
+            else
+            {
+                CurrentKatanRound = Katan.KatanRounds[CurrentRound--];
+            }
+        }
 
         #endregion
 
@@ -75,7 +104,7 @@ namespace Katan.ViewModels
         {
             _katan = new KatanVisualAdapter(Core.Katan.Version.Version32, 90);
             _katan.KatanEncryption(_exampleBits);
-            _currentKatanRound = _katan.KatanRounds[_currentRound];
+            _currentKatanRound = _katan.KatanRounds[CurrentRound];
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
