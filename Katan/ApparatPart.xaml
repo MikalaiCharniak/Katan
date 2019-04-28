@@ -52,29 +52,41 @@
                 <Label FontSize="20" Content="{Binding CurrentRound}"></Label>
             </WrapPanel>
         </Grid>
-        <GroupBox Header="Current Values" Grid.Row="1" Grid.Column="0">
-            <Grid Grid.Row="1" Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.9*"/>
-                    <ColumnDefinition Width="0.1*"/>
-                </Grid.ColumnDefinitions>
-                <!--"L(1)[X1] XOR L1[X2] XOR (L1[X3] ^ L1[X4]) XOR (L1[X5 * IR]) XOR K_A"-->
-                <WrapPanel Grid.Column="0" Orientation="Vertical">
-                    <Label Content="Current K__A = Key [2 * CurrentRound] : "/>
-                    <Label Content="Current K__B = Key [2 * CurrentRound + 1] :"/>
-                    <Label Content="Current F__A:"/>
-                    <Label Content="Current F__B:"/>
-                    <Label Content="Current IR value:"/>
-                </WrapPanel >
-                <WrapPanel Grid.Column="1" Orientation="Vertical">
-                    <Label Content="{Binding CurrentKatanRound.K_A}"/>
-                    <Label Content="{Binding CurrentKatanRound.K_B}"/>
-                    <Label Content="{Binding CurrentKatanRound.F_A}"/>
-                    <Label Content="{Binding CurrentKatanRound.F_B}"/>
-                    <Label Content="{Binding CurrentKatanRound.IR}"/>
+        <WrapPanel Grid.Row="1" Grid.Column="0">
+            <GroupBox>
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.9*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                    </Grid.ColumnDefinitions>
+                    <WrapPanel Grid.Column="0" Orientation="Vertical">
+                        <Label Content="Current K__A = Key [2 * CurrentRound] : "/>
+                        <Label Content="Current K__B = Key [2 * CurrentRound + 1] :"/>
+                        <Label Content="Current F__A:"/>
+                        <Label Content="Current F__B:"/>
+                        <Label Content="Current IR value:"/>
+                    </WrapPanel >
+                    <WrapPanel Grid.Column="1" Orientation="Vertical">
+                        <Label Content="{Binding CurrentKatanRound.K_A}"/>
+                        <Label Content="{Binding CurrentKatanRound.K_B}"/>
+                        <Label Content="{Binding CurrentKatanRound.F_A}"/>
+                        <Label Content="{Binding CurrentKatanRound.F_B}"/>
+                        <Label Content="{Binding CurrentKatanRound.IR}"/>
+                    </WrapPanel>
+                </Grid>
+            </GroupBox>
+            <GroupBox>
+                <WrapPanel>
+                    <TextBlock Text=" Formule for F_A value :"/>
+                    <Image Source="Resources\F_A_Formule.jpg" Height="50"/>
+                    <TextBlock Text="Current state of F_A formule:"/>
+                    <TextBlock Text="{Binding CurrentKatanRound.FA_State}"/>
+                    <TextBlock Text=" Formule for F_B value :"/>
+                    <Image Source="Resources\F_B_Formule.png" Height="50"/>
+                    <TextBlock Text="Current state of F_B formule:"/>
                 </WrapPanel>
-            </Grid>
-        </GroupBox>
+            </GroupBox>
+        </WrapPanel>
         <UserControl Grid.Row="0" Grid.Column="1" Height="100" Width="900">
             <local:Register/>
         </UserControl>

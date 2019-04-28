@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/f_a_formule.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/f_b_formule.png")]
 
 

@@ -14,7 +14,7 @@
     <UniformGrid Rows="1"  x:Name="RegisterBlock">
         <ListView
             x:Name="RegisterValues"  ToolTip="Register L1 (13 Ranks)"
-            ItemsSource="{Binding RegisterView, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="800" ScrollViewer.CanContentScroll="True"
+            ItemsSource="{Binding FirstRegisterView, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="800" ScrollViewer.CanContentScroll="True"
                   ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="49,-2,51,2">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>

@@ -7,22 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="900">
     <UserControl.Resources>
-        <Style TargetType="TextBlock">
-            <Setter Property="TextBlock.Background" Value="Black"/>
-            <Setter Property="FontFamily" Value="Verdana" />
-            <Setter Property="Background" Value="Black" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Width"  Value="50"/>
-            <Setter Property="Height"  Value="50"/>
-            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
-        </Style>
         <Style TargetType="UniformGrid">
             <Setter Property="Background" Value="White"/>
         </Style>
     </UserControl.Resources>
     <UniformGrid Rows="1"  x:Name="RegisterBlock" Width="900">
         <ListView ToolTip="Register L2 (19 Ranks)"
-            ItemsSource="{Binding CurrentKatanRound.SecondRegister, Mode=TwoWay}" Width="800" ScrollViewer.CanContentScroll="True"
+            ItemsSource="{Binding SecondRegisterView, Mode=TwoWay}" Width="800" ScrollViewer.CanContentScroll="True"
                   ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <ListView.ItemsPanel >
                 <ItemsPanelTemplate>

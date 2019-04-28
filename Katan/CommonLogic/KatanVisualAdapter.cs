@@ -85,7 +85,9 @@ namespace Katan.CommonLogic
                 F_B = f_b,
                 FirstRegister = _firstRegister.ToList(),
                 SecondRegister = _secondRegister.ToList(),
-                IR = _IR[round]
+                IR = _IR[round],
+             FA_State = $"{_firstRegister[_setX[0]]} xor {_firstRegister[_setX[1]]} xor" +
+             $" ({_firstRegister[_setX[2]]} ^ {_firstRegister[_setX[3]]}) xor {k_a}"   
             });
         }
 
@@ -109,6 +111,8 @@ namespace Katan.CommonLogic
         private List<int> _firstRegister;
         private List<int> _secondRegister;
         private int _IR;
+        private string _faState;
+        private string _fbState;
 
         public int K_A
         {
@@ -182,6 +186,25 @@ namespace Katan.CommonLogic
             {
                 _IR = value;
                 OnPropertyChanged("IR");
+            }
+        }
+        public string FA_State
+        {
+            get => _faState;
+            set
+            {
+                _faState = value;
+                OnPropertyChanged("FA_State");
+
+            }
+        }
+        public string FB_State
+        {
+            get => _fbState;
+            set
+            {
+                _fbState = value;
+                OnPropertyChanged("FB_State");
             }
         }
 

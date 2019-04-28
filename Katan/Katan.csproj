@@ -136,5 +136,9 @@
   <ItemGroup>
     <Resource Include="Resources\images.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\F_A_Formule.jpg" />
+    <Resource Include="Resources\F_B_Formule.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

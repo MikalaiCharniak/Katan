@@ -21,7 +21,8 @@ namespace Katan.ViewModels
         private int _currentRound = 0;
         private KatanVisualAdapter _katan;
         private KatanRound _currentKatanRound;
-        private List<ListViewItem> _registerView;
+        private List<ListViewItem> _firstRegisterView;
+        private List<ListViewItem> _secondRegisterView;
         public int CurrentRound
         {
             get => _currentRound;
@@ -49,13 +50,22 @@ namespace Katan.ViewModels
                 OnPropertyChanged("Katan");
             }
         }
-        public List<ListViewItem> RegisterView
+        public List<ListViewItem> FirstRegisterView
         {
-            get => _registerView;
+            get => _firstRegisterView;
             set
             {
-                _registerView = value;
-                OnPropertyChanged("RegisterView");
+                _firstRegisterView = value;
+                OnPropertyChanged("FirstRegisterView");
+            }
+        }
+        public List<ListViewItem> SecondRegisterView
+        {
+            get => _secondRegisterView;
+            set
+            {
+                _secondRegisterView = value;
+                OnPropertyChanged("SecondRegisterView");
             }
         }
 
@@ -78,16 +88,10 @@ namespace Katan.ViewModels
         }
         private void NextRound()
         {
-            if (CurrentRound == 253)
-            {
-                CurrentKatanRound = Katan.KatanRounds[CurrentRound];
-                SetRegisterView();
-            }
-            else
-            {
-                CurrentKatanRound = Katan.KatanRounds[CurrentRound++];
-                SetRegisterView();
-            }
+            CurrentKatanRound = CurrentRound == 253 ?
+                Katan.KatanRounds[CurrentRound] : Katan.KatanRounds[CurrentRound++];
+            SetFirstRegisterView();
+            SetSecondRegisterView();
         }
 
         private RelayCommand _previosRound;
@@ -104,16 +108,10 @@ namespace Katan.ViewModels
         }
         private void PreviosRound()
         {
-            if (CurrentRound == 0)
-            {
-                CurrentKatanRound = Katan.KatanRounds[CurrentRound];
-                SetRegisterView();
-            }
-            else
-            {
-                CurrentKatanRound = Katan.KatanRounds[CurrentRound--];
-                SetRegisterView();
-            }
+            CurrentKatanRound = CurrentRound == 0 ?
+                 Katan.KatanRounds[CurrentRound] : Katan.KatanRounds[CurrentRound--];
+            SetFirstRegisterView();
+            SetSecondRegisterView();
         }
 
         #endregion
@@ -123,13 +121,18 @@ namespace Katan.ViewModels
             _katan = new KatanVisualAdapter(Core.Katan.Version.Version32, 90);
             _katan.KatanEncryption(_exampleBits);
             _currentKatanRound = _katan.KatanRounds[CurrentRound];
-            _registerView = new List<ListViewItem>();
-            SetRegisterView();
+            _firstRegisterView = new List<ListViewItem>();
+            _secondRegisterView = new List<ListViewItem>();
+            SetFirstRegisterView();
+            SetSecondRegisterView();
         }
 
-        private void SetRegisterView()
+
+        #region   Vizualization Methods
+        //It can be possible to implement this methods like one, but it must change props too (ref and props , etc.)
+        private void SetFirstRegisterView()
         {
-            RegisterView.Clear();
+            FirstRegisterView.Clear();
             var buffer = new List<ListViewItem>();
             for (int i = 0; i < CurrentKatanRound.FirstRegister.Count; i++)
             {
@@ -142,9 +145,27 @@ namespace Katan.ViewModels
                     KatanAdapterStyles.RegisterActiveCellStyle : KatanAdapterStyles.RegisterSimpleCellStyle
                 });
             }
-            RegisterView = buffer;
+            FirstRegisterView = buffer;
+        }
+        private void SetSecondRegisterView()
+        {
+            SecondRegisterView.Clear();
+            var buffer = new List<ListViewItem>();
+            for (int i = 0; i < CurrentKatanRound.SecondRegister.Count; i++)
+            {
+                buffer.Add(new ListViewItem()
+                {
+                    Content = CurrentKatanRound.SecondRegister[i].ToString(),
+                    Height = 50,
+                    Width = 50,
+                    Style = Katan.SetY.Contains(i + 1) ?
+                    KatanAdapterStyles.RegisterActiveCellStyle : KatanAdapterStyles.RegisterSimpleCellStyle
+                });
+            }
+            SecondRegisterView = buffer;
         }
 
+        #endregion
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
@@ -170,7 +191,7 @@ namespace Katan.ViewModels
         private static void InitRegisterCellSimpleStyle()
         {
             RegisterSimpleCellStyle.Setters.Add(new Setter
-            { Property = ListViewItem.BackgroundProperty, Value = new SolidColorBrush(Colors.Black)});
+            { Property = ListViewItem.BackgroundProperty, Value = new SolidColorBrush(Colors.Gray) });
             RegisterSimpleCellStyle.Setters.Add(new Setter
             { Property = ListViewItem.FontFamilyProperty, Value = new FontFamily("Verdana") });
             RegisterSimpleCellStyle.Setters.Add(new Setter
@@ -179,12 +200,11 @@ namespace Katan.ViewModels
             { Property = ListViewItem.HorizontalContentAlignmentProperty, Value = HorizontalAlignment.Center });
             RegisterSimpleCellStyle.Setters.Add(new Setter
             { Property = ListViewItem.MarginProperty, Value = new Thickness(5) });
-
         }
         private static void InitRegisterActiveSimpleStyle()
         {
             RegisterActiveCellStyle.Setters.Add(new Setter
-            { Property = ListViewItem.BackgroundProperty, Value = new SolidColorBrush(Colors.Red) });
+            { Property = ListViewItem.BackgroundProperty, Value = new SolidColorBrush(Colors.Black) });
             RegisterActiveCellStyle.Setters.Add(new Setter
             { Property = ListViewItem.FontFamilyProperty, Value = new FontFamily("Verdana") });
             RegisterActiveCellStyle.Setters.Add(new Setter
