@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace Katan.CommonLogic
 {
-    public class KatanVisualAdapter : Katan.Core.Katan, INotifyPropertyChanged
+    public class KatanVisualAdapter : Core.Katan, INotifyPropertyChanged
     {
         private List<KatanRound> _katanRoundsList;
         public List<KatanRound> KatanRounds
@@ -17,8 +17,18 @@ namespace Katan.CommonLogic
                 OnPropertyChanged("KatanRounds");
             }
         }
+        public int[] SetX
+        {
+            get => _setX;
+            set => _setX = value;
+        }
+        public int[] SetY
+        {
+            get => _setY;
+            set => _setY = value;
+        }
 
-        public KatanVisualAdapter(Katan.Core.Katan.Version version, int key)
+        public KatanVisualAdapter(Version version, int key)
             : base(version, key)
         {
         }
@@ -74,7 +84,8 @@ namespace Katan.CommonLogic
                 F_A = f_a,
                 F_B = f_b,
                 FirstRegister = _firstRegister.ToList(),
-                SecondRegister = _secondRegister.ToList()
+                SecondRegister = _secondRegister.ToList(),
+                IR = _IR[round]
             });
         }
 
@@ -97,6 +108,7 @@ namespace Katan.CommonLogic
         private int round;
         private List<int> _firstRegister;
         private List<int> _secondRegister;
+        private int _IR;
 
         public int K_A
         {
@@ -161,6 +173,15 @@ namespace Katan.CommonLogic
             {
                 _secondRegister = value;
                 OnPropertyChanged("SecondRegister");
+            }
+        }
+        public int IR
+        {
+            get => _IR;
+            set
+            {
+                _IR = value;
+                OnPropertyChanged("IR");
             }
         }
 

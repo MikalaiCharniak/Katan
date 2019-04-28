@@ -58,13 +58,20 @@
                     <ColumnDefinition Width="0.9*"/>
                     <ColumnDefinition Width="0.1*"/>
                 </Grid.ColumnDefinitions>
-                <WrapPanel Grid.Column="0">
+                <!--"L(1)[X1] XOR L1[X2] XOR (L1[X3] ^ L1[X4]) XOR (L1[X5 * IR]) XOR K_A"-->
+                <WrapPanel Grid.Column="0" Orientation="Vertical">
                     <Label Content="Current K__A = Key [2 * CurrentRound] : "/>
                     <Label Content="Current K__B = Key [2 * CurrentRound + 1] :"/>
-                </WrapPanel>
-                <WrapPanel Grid.Column="1">
+                    <Label Content="Current F__A:"/>
+                    <Label Content="Current F__B:"/>
+                    <Label Content="Current IR value:"/>
+                </WrapPanel >
+                <WrapPanel Grid.Column="1" Orientation="Vertical">
                     <Label Content="{Binding CurrentKatanRound.K_A}"/>
                     <Label Content="{Binding CurrentKatanRound.K_B}"/>
+                    <Label Content="{Binding CurrentKatanRound.F_A}"/>
+                    <Label Content="{Binding CurrentKatanRound.F_B}"/>
+                    <Label Content="{Binding CurrentKatanRound.IR}"/>
                 </WrapPanel>
             </Grid>
         </GroupBox>
