@@ -1,0 +1,61 @@
+﻿<Window x:Class="Katan.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Katan"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Icon="Resources/images.ico"
+        BorderThickness="35" BorderBrush="Beige"
+        Title="Katan" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.33*"/>
+            <RowDefinition Height="0.66*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel Name="Information" Grid.Column="0" >
+            </WrapPanel>
+            <WrapPanel Name="Navigation" Grid.Column ="1" >
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.66*"/>
+            </Grid.RowDefinitions>
+            <WrapPanel Name="ControlPanel" Grid.Row="0" Grid.Column="0" />
+            <Grid Name="CodeGrid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <WrapPanel Name="InputPanel" Grid.Column="0" HorizontalAlignment="Center"
+                           Orientation="Vertical">
+                    <Label Content="Input Text" HorizontalAlignment="Center"/>
+                    <TextBox Name="InputText" FontSize="15" FontFamily="Verdana"
+                             TextWrapping="Wrap" Width="600" Height="200"
+                             BorderBrush="Black" BorderThickness="5"
+                             ScrollViewer.CanContentScroll="True"
+                             ScrollViewer.VerticalScrollBarVisibility="Visible"
+                             />
+                </WrapPanel>
+                <WrapPanel Name="OutputPanel" Grid.Column="1"
+                           Orientation="Vertical">
+                    <Label Content="Output Text" HorizontalAlignment="Center"/>
+                    <TextBox Name="OutputText" FontSize="15" FontFamily="Verdana"
+                             TextWrapping="Wrap" Width="600" Height="200"
+                             BorderBrush="Black" BorderThickness="5"
+                             ScrollViewer.CanContentScroll="True"
+                             ScrollViewer.VerticalScrollBarVisibility="Visible"
+                             />
+                </WrapPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

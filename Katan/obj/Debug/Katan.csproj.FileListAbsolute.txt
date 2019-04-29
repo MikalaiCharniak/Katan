@@ -22,14 +22,12 @@ D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\bin\Debug\Katan.exe
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\bin\Debug\Katan.exe
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\bin\Debug\Katan.pdb
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Katan.csprojAssemblyReference.cache
-D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Menu.g.cs
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Register.g.cs
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Register_2.g.cs
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\App.g.cs
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Katan_MarkupCompile.cache
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Katan_MarkupCompile.lref
-D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Menu.baml
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Register.baml
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Register_2.baml
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Katan.g.resources
@@ -43,3 +41,5 @@ D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\bin\Debug\Katan.Cor
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\Katan.csproj.CopyComplete
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\ApparatPart.g.cs
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\ApparatPart.baml
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\MainPage.g.cs
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan\obj\Debug\MainPage.baml
