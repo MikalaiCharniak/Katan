@@ -102,7 +102,7 @@ namespace Katan.Core
 
         #region Katan Core Methods
 
-        protected virtual void KatanRoundEncription(int round)
+        protected virtual void KatanRoundEncryption(int round)
         {
             int k_a = _key[2 * round];
             int k_b = _key[2 * round + 1];
@@ -132,20 +132,20 @@ namespace Katan.Core
             _firstRegister = plainTextBits.Skip(_secondRegisterCapacity).ToList();
             for (int round = 0; round != 254; round++)
             {
-                KatanRoundEncription(round);
+                KatanRoundEncryption(round);
                 if ((int)KatanVersion > 32)
                 {
-                    KatanRoundEncription(round);
+                    KatanRoundEncryption(round);
                 }
                 if ((int)KatanVersion > 48)
                 {
-                    KatanRoundEncription(round);
+                    KatanRoundEncryption(round);
                 }
             }
             return _secondRegister.Concat(_firstRegister).ToList();
         }
 
-        public void KatanRoundDecription(int round)
+        public void KatanRoundDecryption(int round)
         {
             int k_a = _key[2 * round];
             int k_b = _key[2 * round + 1];
@@ -170,20 +170,20 @@ namespace Katan.Core
             _secondRegister.Insert(_secondRegisterCapacity - 1, f_b);
         }
 
-        public List<int> KatanDecription(List<int> cipherTextBits)
+        public List<int> KatanDecryption(List<int> cipherTextBits)
         {
             _secondRegister = cipherTextBits.Take(_secondRegisterCapacity).ToList();
             _firstRegister = cipherTextBits.Skip(_secondRegisterCapacity).ToList();
             for (int round = 253; round != -1; round--)
             {
-                KatanRoundDecription(round);
+                KatanRoundDecryption(round);
                 if ((int)KatanVersion > 32)
                 {
-                    KatanRoundDecription(round);
+                    KatanRoundDecryption(round);
                 }
                 if ((int)KatanVersion > 48)
                 {
-                    KatanRoundDecription(round);
+                    KatanRoundDecryption(round);
                 }
             }
             return _secondRegister.Concat(_firstRegister).ToList();

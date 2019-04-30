@@ -38,7 +38,7 @@ namespace Katan.Core
             {
                 List<int> buffer = new List<int>();
                 block.ToList().ForEach(x => buffer.Add(x));
-                sb.Append(Cryptography.BinaryToString(Katan.KatanDecription(buffer)));
+                sb.Append(Cryptography.BinaryToString(Katan.KatanDecryption(buffer)));
             }
             return sb.ToString();
         }
