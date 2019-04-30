@@ -40,20 +40,20 @@ namespace Katan.CommonLogic
             _firstRegister = plainTextBits.Skip(_secondRegisterCapacity).ToList();
             for (int round = 0; round != 254; round++)
             {
-                KatanRoundEncription(round);
+                KatanRoundEncryption(round);
                 if ((int)KatanVersion > 32)
                 {
-                    KatanRoundEncription(round);
+                    KatanRoundEncryption(round);
                 }
                 if ((int)KatanVersion > 48)
                 {
-                    KatanRoundEncription(round);
+                    KatanRoundEncryption(round);
                 }
             }
             return _secondRegister.Concat(_firstRegister).ToList();
         }
 
-        protected override void KatanRoundEncription(int round)
+        protected override void KatanRoundEncryption(int round)
         {
             int k_a = _key[2 * round];
             int k_b = _key[2 * round + 1];

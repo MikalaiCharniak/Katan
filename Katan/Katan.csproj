@@ -70,6 +70,7 @@
       <DependentUpon>Register_2.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\KatanAdapterViewModel.cs" />
+    <Compile Include="ViewModels\KatanMainViewModel.cs" />
     <Page Include="ApparatPart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -15,3 +15,12 @@ D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Deb
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.csproj.CoreCompileInputs.cache
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.exe
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.pdb
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\bin\Debug\Katan.TestConsole.exe.config
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\bin\Debug\Katan.TestConsole.exe
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\bin\Debug\Katan.TestConsole.pdb
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\bin\Debug\Katan.Core.dll
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\bin\Debug\Katan.exe
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\bin\Debug\Katan.Core.pdb
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\bin\Debug\Katan.pdb
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\bin\Debug\Katan.exe.config
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.TestConsole\obj\Debug\Katan.TestConsole.csproj.CopyComplete

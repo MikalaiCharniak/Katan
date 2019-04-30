@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Katan.Core.Extensions;
 
@@ -44,6 +46,7 @@ namespace Katan.Core
         #region Katan Initialize Methods
         public Katan(Version version, int key)
         {
+            _timer = new Stopwatch();
             _key = Cryptography.GenerateKey(key);
             switch (version)
             {
@@ -128,6 +131,7 @@ namespace Katan.Core
 
         public virtual List<int> KatanEncryption(List<int> plainTextBits)
         {
+            _timer.Start();
             _secondRegister = plainTextBits.Take(_secondRegisterCapacity).ToList();
             _firstRegister = plainTextBits.Skip(_secondRegisterCapacity).ToList();
             for (int round = 0; round != 254; round++)
@@ -142,6 +146,9 @@ namespace Katan.Core
                     KatanRoundEncryption(round);
                 }
             }
+            _timer.Stop();
+            TotalEncryptionTime = _timer.Elapsed;
+            _timer.Reset();
             return _secondRegister.Concat(_firstRegister).ToList();
         }
 
@@ -172,6 +179,7 @@ namespace Katan.Core
 
         public List<int> KatanDecryption(List<int> cipherTextBits)
         {
+            _timer.Start();
             _secondRegister = cipherTextBits.Take(_secondRegisterCapacity).ToList();
             _firstRegister = cipherTextBits.Skip(_secondRegisterCapacity).ToList();
             for (int round = 253; round != -1; round--)
@@ -186,6 +194,9 @@ namespace Katan.Core
                     KatanRoundDecryption(round);
                 }
             }
+            _timer.Stop();
+            TotalDecryptionTime = _timer.Elapsed;
+            _timer.Reset();
             return _secondRegister.Concat(_firstRegister).ToList();
         }
 
@@ -198,6 +209,12 @@ namespace Katan.Core
             Version48 = 48,
             Version64 = 64
         }
+
+        private Stopwatch _timer;
+        public TimeSpan RoundEncryptionTime;
+        public TimeSpan RoundDecryptionTime;
+        public TimeSpan TotalEncryptionTime;
+        public TimeSpan TotalDecryptionTime;
         #endregion
     }
 }
