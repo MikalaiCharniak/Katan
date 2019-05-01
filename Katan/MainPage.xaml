@@ -8,7 +8,34 @@
         WindowState="Maximized"
         Icon="Resources/images.ico"
         BorderThickness="35" BorderBrush="Beige"
-        Title="Katan" >
+        Title="Katan">
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\Dell\Desktop\wall4.jpg"/>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.33*"/>
@@ -29,7 +56,43 @@
                 <RowDefinition Height="0.33*"/>
                 <RowDefinition Height="0.66*"/>
             </Grid.RowDefinitions>
-            <WrapPanel Name="ControlPanel" Grid.Row="0" Grid.Column="0" />
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <WrapPanel Grid.Column="0" HorizontalAlignment="Center"
+                               >
+                        <Button ToolTip="Load File" >
+                            <Image Source="C:\Users\Dell\Desktop\load_file.png"/>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel Grid.Column="1"  HorizontalAlignment="Center"
+                               >
+                        <Button ToolTip="Encrypt Info"  Width="100" Height="50"
+                            Background="Beige">
+                            <Image Source="C:\Users\Dell\Desktop\key.png"/>
+                        </Button>
+                        <Button ToolTip="Decrypt Info"  Width="100" Height="50"
+                             Background="Beige" 
+                                Margin="0 50 0 0">
+                            <Image Source="C:\Users\Dell\Desktop\reverse_key.png"/>
+                        </Button>
+                    </WrapPanel>
+                    <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
+                        <Button ToolTip="Save File">
+                            <Image Source="C:\Users\Dell\Desktop\save_file.png"/>
+                        </Button>
+                    </WrapPanel>
+                </Grid>
+            </Grid>
             <Grid Name="CodeGrid" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -37,23 +100,22 @@
                 </Grid.ColumnDefinitions>
                 <WrapPanel Name="InputPanel" Grid.Column="0" HorizontalAlignment="Center"
                            Orientation="Vertical">
-                    <Label Content="Input Text" HorizontalAlignment="Center"/>
                     <TextBox Name="InputText" FontSize="15" FontFamily="Verdana"
                              TextWrapping="Wrap" Width="600" Height="200"
                              BorderBrush="Black" BorderThickness="5"
                              ScrollViewer.CanContentScroll="True"
                              ScrollViewer.VerticalScrollBarVisibility="Visible"
-                             />
+                             Margin="-50 0 0 0">
+                    </TextBox>
                 </WrapPanel>
                 <WrapPanel Name="OutputPanel" Grid.Column="1"
                            Orientation="Vertical">
-                    <Label Content="Output Text" HorizontalAlignment="Center"/>
                     <TextBox Name="OutputText" FontSize="15" FontFamily="Verdana"
                              TextWrapping="Wrap" Width="600" Height="200"
                              BorderBrush="Black" BorderThickness="5"
                              ScrollViewer.CanContentScroll="True"
                              ScrollViewer.VerticalScrollBarVisibility="Visible"
-                             />
+                             Margin="50 0 0 0"/>
                 </WrapPanel>
             </Grid>
         </Grid>
