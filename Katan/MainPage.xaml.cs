@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Katan.ViewModels;
 
 namespace Katan
 {
@@ -22,14 +23,7 @@ namespace Katan
         public MainPage()
         {
             InitializeComponent();
-        }
-
-        private void OutputText_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (OutputText.IsMouseOver)
-            {
-                OutputText.BorderBrush = new SolidColorBrush(Colors.Black);
-            }
+            DataContext = new KatanMainViewModel();
         }
     }
 }

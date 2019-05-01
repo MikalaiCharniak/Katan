@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Katan.Core;
 using Katan.CommonLogic;
+using System.Windows;
 
 namespace Katan.ViewModels
 {
@@ -64,7 +65,15 @@ namespace Katan.ViewModels
         }
         private void EncryptText()
         {
+            try
+            {
+                _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)32, 90));
+                OutputText = _katanTextAdapter.KatanEncryptText(InputText);
+            }
+            catch (Exception ex)
+            {
 
+            }
         }
 
         private RelayCommand _decryptText;
@@ -81,9 +90,53 @@ namespace Katan.ViewModels
         }
         public void DecryptText()
         {
-
+            try
+            {
+                _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)32, 90));
+                InputText = _katanTextAdapter.AltKatanDecryptText(OutputText);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        private RelayCommand _loadFile;
+        public RelayCommand LoadFileCommand
+        {
+            get => _loadFile ??
+                   (_loadFile = new RelayCommand(obj =>
+                  {
+                      LoadFile();
+                  }));
+        }
+        public void LoadFile()
+        {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.DefaultExt = ".txt";
+            dialog.Filter = "Text documents (.txt)|*.txt";
+            var result = dialog.ShowDialog();
+            if (result == true)
+            {
+                InputText = System.IO.File.ReadAllText(dialog.FileName);
+            }
+        }
+
+        private RelayCommand _saveFile;
+        public RelayCommand SaveFileCommand
+        {
+            get => _saveFile ??
+                   (_saveFile = new RelayCommand(obj =>
+                   {
+                       SaveFile();
+                   }));
+        }
+        public void SaveFile()
+        {
+            var saveFileDialog = new Microsoft.Win32.SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
+                System.IO.File.WriteAllText(saveFileDialog.FileName, OutputText);
+        }
 
         #endregion
 

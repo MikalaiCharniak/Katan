@@ -70,24 +70,25 @@
                     </Grid.ColumnDefinitions>
                     <WrapPanel Grid.Column="0" HorizontalAlignment="Center"
                                >
-                        <Button ToolTip="Load File" >
+                        <Button ToolTip="Load File" Command="{Binding LoadFileCommand}">
                             <Image Source="C:\Users\Dell\Desktop\load_file.png"/>
                         </Button>
                     </WrapPanel>
                     <WrapPanel Grid.Column="1"  HorizontalAlignment="Center"
                                >
                         <Button ToolTip="Encrypt Info"  Width="100" Height="50"
-                            Background="Beige">
+                            Background="Beige" Command="{Binding EncryptTextCommand}">
                             <Image Source="C:\Users\Dell\Desktop\key.png"/>
                         </Button>
                         <Button ToolTip="Decrypt Info"  Width="100" Height="50"
                              Background="Beige" 
-                                Margin="0 50 0 0">
+                                Margin="0 50 0 0"
+                                Command="{Binding DecryptTextCommand}">
                             <Image Source="C:\Users\Dell\Desktop\reverse_key.png"/>
                         </Button>
                     </WrapPanel>
                     <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
-                        <Button ToolTip="Save File">
+                        <Button ToolTip="Save File" Command="{Binding SaveFileCommand}">
                             <Image Source="C:\Users\Dell\Desktop\save_file.png"/>
                         </Button>
                     </WrapPanel>
@@ -105,6 +106,7 @@
                              BorderBrush="Black" BorderThickness="5"
                              ScrollViewer.CanContentScroll="True"
                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                             Text="{Binding InputText, Mode=TwoWay}"
                              Margin="-50 0 0 0">
                     </TextBox>
                 </WrapPanel>
@@ -115,6 +117,7 @@
                              BorderBrush="Black" BorderThickness="5"
                              ScrollViewer.CanContentScroll="True"
                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                             Text="{Binding OutputText, Mode=TwoWay}"
                              Margin="50 0 0 0"/>
                 </WrapPanel>
             </Grid>
