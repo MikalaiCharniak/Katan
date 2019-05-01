@@ -94,6 +94,7 @@ namespace Katan.ViewModels
             {
                 _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)32, 90));
                 InputText = _katanTextAdapter.AltKatanDecryptText(OutputText);
+                InputText = _katanTextAdapter.SpecialRetransformText(InputText);
             }
             catch (Exception ex)
             {
