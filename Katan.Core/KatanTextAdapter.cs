@@ -97,5 +97,11 @@ namespace Katan.Core
         }
 
         public string SpecialRetransformText(string text) => text.Remove(text.Length - _specialSymbols, _specialSymbols);
+
+        public void ClearBuffer()
+        {
+            stringBuilder.Clear();
+            blocks.Clear();
+        }
     }
 }

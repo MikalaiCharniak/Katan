@@ -73,7 +73,8 @@
                           FontSize="17"  Content="80 BIT'S KEY(4-RANK INT NUM)"/>
                         <TextBox  Width="300" Height="150"
                          MaxLines="1" MaxLength="4"
-                                  FontSize="90" />
+                                  FontSize="90" Text="{Binding KatanKey, Mode=TwoWay}"
+                                  />
                     </WrapPanel>
                     <WrapPanel  Height="200" Width="200"
                         Grid.Column="1" >

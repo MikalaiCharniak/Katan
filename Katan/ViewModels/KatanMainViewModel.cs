@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Katan.Core;
@@ -19,6 +15,7 @@ namespace Katan.ViewModels
         private string _outputText;
         private KatanTextAdapter _katanTextAdapter;
         private string _key;
+        private int _currentKatanVersion;
 
         public string InputText
         {
@@ -47,6 +44,15 @@ namespace Katan.ViewModels
                 OnPropertyChanged("KatanKey");
             }
         }
+        public int CurrentKatanVersion
+        {
+            get => _currentKatanVersion;
+            set
+            {
+                _currentKatanVersion = value;
+                OnPropertyChanged("KatanVersion");
+            }
+        }
         #endregion
 
         #region Commands
@@ -67,12 +73,18 @@ namespace Katan.ViewModels
         {
             try
             {
-                _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)32, 90));
+                if (_katanTextAdapter == null ||
+                    (int)_katanTextAdapter.Katan.KatanVersion != CurrentKatanVersion)
+                {
+                    _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)CurrentKatanVersion,
+                        Int32.Parse(KatanKey)));
+                }
                 OutputText = _katanTextAdapter.KatanEncryptText(InputText);
+                _katanTextAdapter.ClearBuffer();
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -92,9 +104,15 @@ namespace Katan.ViewModels
         {
             try
             {
-                _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)32, 90));
+                if (_katanTextAdapter == null ||
+                (int)_katanTextAdapter.Katan.KatanVersion != CurrentKatanVersion)
+                {
+                    _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)CurrentKatanVersion,
+                        Int32.Parse(KatanKey)));
+                }
                 InputText = _katanTextAdapter.AltKatanDecryptText(OutputText);
                 InputText = _katanTextAdapter.SpecialRetransformText(InputText);
+                _katanTextAdapter.ClearBuffer();
             }
             catch (Exception ex)
             {
@@ -140,6 +158,11 @@ namespace Katan.ViewModels
         }
 
         #endregion
+
+        public KatanMainViewModel()
+        {
+            CurrentKatanVersion = (int)Core.Katan.Version.Version32;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
