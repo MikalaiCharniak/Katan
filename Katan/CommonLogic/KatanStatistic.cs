@@ -81,7 +81,7 @@ namespace Katan.CommonLogic
         {
             RoundDecryptionTime = adapter.Katan.RoundDecryptionTime;
             TotalDecryptionTime = adapter.Katan.TotalDecryptionTime;
-            SizeInfoDecrypt = (int)adapter.Katan.KatanVersion * adapter.blocks.Count;
+            SizeInfoDecrypt = (int)adapter.Katan.KatanVersion * adapter.arr.Count;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

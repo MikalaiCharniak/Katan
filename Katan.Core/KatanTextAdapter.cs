@@ -10,6 +10,7 @@ namespace Katan.Core
     {
         public StringBuilder stringBuilder = new StringBuilder();
         public List<List<int>> blocks = new List<List<int>>();
+        public List<byte[]> arr = new List<byte[]>();
         public Katan Katan { get; set; }
         private int _specialSymbols;
 
@@ -32,7 +33,7 @@ namespace Katan.Core
 
         public string AltKatanDecryptText(string text)
         {
-            List<byte[]> arr = PrepareTextToDecrypt(text);
+            arr = PrepareTextToDecrypt(text);
             StringBuilder sb = new StringBuilder();
             foreach (var block in arr)
             {
@@ -102,6 +103,7 @@ namespace Katan.Core
         {
             stringBuilder.Clear();
             blocks.Clear();
+            arr.Clear();
         }
     }
 }

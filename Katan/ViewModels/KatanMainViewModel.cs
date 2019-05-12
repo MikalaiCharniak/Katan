@@ -128,6 +128,7 @@ namespace Katan.ViewModels
                 }
                 InputText = _katanTextAdapter.AltKatanDecryptText(OutputText);
                 InputText = _katanTextAdapter.SpecialRetransformText(InputText);
+                KatanStatistic.DecryptStatistic(_katanTextAdapter);
                 _katanTextAdapter.ClearBuffer();
             }
             catch (Exception ex)
@@ -171,6 +172,22 @@ namespace Katan.ViewModels
             var saveFileDialog = new Microsoft.Win32.SaveFileDialog();
             if (saveFileDialog.ShowDialog() == true)
                 System.IO.File.WriteAllText(saveFileDialog.FileName, OutputText);
+        }
+
+        private RelayCommand _apparatPage;
+        public RelayCommand ApparatPageCommand
+        {
+            get => _apparatPage ??
+               (_apparatPage = new RelayCommand(obj =>
+               {
+                   ApparatPage();
+               }));
+        }
+
+        public void ApparatPage()
+        {
+            ApparatPart window = new ApparatPart();
+            window.Show();
         }
 
         #endregion
