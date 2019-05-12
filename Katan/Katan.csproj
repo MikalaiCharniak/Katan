@@ -140,5 +140,23 @@
     <Resource Include="Resources\F_A_Formule.jpg" />
     <Resource Include="Resources\F_B_Formule.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\reverse_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\save_file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\load_file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\katan_scheme.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

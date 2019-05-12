@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/f_a_formule.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/f_b_formule.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/katan_scheme.png")]
 
 

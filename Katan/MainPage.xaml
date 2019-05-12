@@ -67,34 +67,34 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <WrapPanel  Height="200"
+                    <WrapPanel  Height="200" Width="200"
                         Grid.Column="0" Background="Red">
                         <Label  Background="Beige" HorizontalContentAlignment="Center" 
                           FontSize="17"  Content="80 BIT'S KEY(4-RANK INT NUM)"/>
-                        <TextBox  Width="300" Height="150"
+                        <TextBox  Width="200" Height="150"
                          MaxLines="1" MaxLength="4"
                                   FontSize="90" Text="{Binding KatanKey, Mode=TwoWay}"
                                   />
                     </WrapPanel>
                     <WrapPanel  Height="200" Width="200"
                         Grid.Column="1" >
-                        <ComboBox Height="200" Width="200" Background="Red"
-                                  HorizontalAlignment="Stretch"
-                                  HorizontalContentAlignment="Stretch"
+                        <ComboBox Margin="50 0 0 0" Height="200" Width="200" Background="Red"
+                                  HorizontalAlignment="Center"
+                                  HorizontalContentAlignment="Center"
                                   VerticalAlignment="Stretch">
                             <ComboBoxItem IsSelected="True">
                                 <StackPanel Orientation="Vertical">
                                     <Label Content="KATAN32"/>
-                                    <Image Source="C:\Users\Dell\Desktop\lock.png" />
+                                    <Image Source="Resources\lock.png" Height="50" Width="50"/>
                                 </StackPanel>
                             </ComboBoxItem>
                             <StackPanel Orientation="Vertical">
                                 <Label Content="KATAN48"/>
-                                <Image Source="C:\Users\Dell\Desktop\lock.png" />
+                                <Image Source="Resources\lock.png" Height="50" Width="50"/>
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <Label Content="KATAN64"/>
-                                <Image Source="C:\Users\Dell\Desktop\lock.png" 
+                                <Image Source="Resources\lock.png"  Height="50" Width="50"
                                        />
                             </StackPanel>
                         </ComboBox>
@@ -108,28 +108,33 @@
                     </Grid.ColumnDefinitions>
                     <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
                         <Button ToolTip="Load File" Command="{Binding LoadFileCommand}">
-                            <Image Source="C:\Users\Dell\Desktop\load_file.png"/>
+                            <Image Source="Resources\load_file.png"/>
                         </Button>
                     </WrapPanel>
                     <WrapPanel Grid.Column="1"  HorizontalAlignment="Center"
                                >
                         <Button ToolTip="Encrypt Info"  Width="100" Height="50"
                             Background="Beige" Command="{Binding EncryptTextCommand}">
-                            <Image Source="C:\Users\Dell\Desktop\key.png"/>
+                            <Image Source="Resources\key.png"/>
                         </Button>
                         <Button ToolTip="Decrypt Info"  Width="100" Height="50"
                              Background="Beige" 
                                 Margin="0 50 0 0"
                                 Command="{Binding DecryptTextCommand}">
-                            <Image Source="C:\Users\Dell\Desktop\reverse_key.png"/>
+                            <Image Source="Resources\reverse_key.png"/>
                         </Button>
                     </WrapPanel>
                     <WrapPanel Grid.Column="2" HorizontalAlignment="Center">
                         <Button ToolTip="Save File" Command="{Binding SaveFileCommand}">
-                            <Image Source="C:\Users\Dell\Desktop\save_file.png"/>
+                            <Image Source="Resources\save_file.png"/>
                         </Button>
                     </WrapPanel>
                 </Grid>
+                <WrapPanel Grid.Column="2">
+                    <Button ToolTip="Go to vizualization stand" Background="Beige">
+                        <Image Source="Resources\katan_scheme.png" Width="300" Height="250"/>
+                    </Button>
+                </WrapPanel>
             </Grid>
             <Grid Name="CodeGrid" Grid.Row="1">
                 <Grid.ColumnDefinitions>
