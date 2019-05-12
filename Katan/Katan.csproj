@@ -158,5 +158,8 @@
   <ItemGroup>
     <Resource Include="Resources\katan_scheme.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\wall4.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

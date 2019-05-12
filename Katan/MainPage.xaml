@@ -10,7 +10,7 @@
         BorderThickness="35" BorderBrush="Beige"
         Title="Katan">
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\Dell\Desktop\wall4.jpg"/>
+        <ImageBrush ImageSource="Resources\wall4.jpg"/>
     </Window.Background>
     <Window.Resources>
         <Style TargetType="TextBox">
