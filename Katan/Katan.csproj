@@ -58,6 +58,7 @@
     <Compile Include="ApparatPart.xaml.cs">
       <DependentUpon>ApparatPart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommonLogic\KatanStatistic.cs" />
     <Compile Include="CommonLogic\KatanVisualAdapter.cs" />
     <Compile Include="CommonLogic\RelayCommand.cs" />
     <Compile Include="MainPage.xaml.cs">

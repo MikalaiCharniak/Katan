@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Katan.Core;
 using Katan.CommonLogic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Katan.ViewModels
 {
@@ -15,7 +16,8 @@ namespace Katan.ViewModels
         private string _outputText;
         private KatanTextAdapter _katanTextAdapter;
         private string _key;
-        private int _currentKatanVersion;
+        private ComboBoxItem _currentKatanVersion;
+        private KatanStatistic _katanStatistic;
 
         public string InputText
         {
@@ -44,13 +46,22 @@ namespace Katan.ViewModels
                 OnPropertyChanged("KatanKey");
             }
         }
-        public int CurrentKatanVersion
+        public ComboBoxItem CurrentKatanVersion
         {
             get => _currentKatanVersion;
             set
             {
                 _currentKatanVersion = value;
                 OnPropertyChanged("KatanVersion");
+            }
+        }
+        public KatanStatistic KatanStatistic
+        {
+            get => _katanStatistic;
+            set
+            {
+                _katanStatistic = value;
+                OnPropertyChanged("KatanStatistic");
             }
         }
         #endregion
@@ -74,13 +85,15 @@ namespace Katan.ViewModels
             try
             {
                 if (_katanTextAdapter == null ||
-                    (int)_katanTextAdapter.Katan.KatanVersion != CurrentKatanVersion
+                    (int)_katanTextAdapter.Katan.KatanVersion != Int32.Parse(CurrentKatanVersion.Uid)
                     || Int32.Parse(KatanKey) != _katanTextAdapter.Katan.PublicKey)
                 {
-                    _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)CurrentKatanVersion,
+                    _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)
+                        Int32.Parse(CurrentKatanVersion.Uid),
                         Int32.Parse(KatanKey)));
                 }
                 OutputText = _katanTextAdapter.KatanEncryptText(InputText);
+                KatanStatistic.EncryptStatistic(_katanTextAdapter);
                 _katanTextAdapter.ClearBuffer();
             }
             catch (Exception ex)
@@ -106,10 +119,11 @@ namespace Katan.ViewModels
             try
             {
                 if (_katanTextAdapter == null ||
-                (int)_katanTextAdapter.Katan.KatanVersion != CurrentKatanVersion
+                (int)_katanTextAdapter.Katan.KatanVersion != Int32.Parse(CurrentKatanVersion.Uid)
                  || Int32.Parse(KatanKey) != _katanTextAdapter.Katan.PublicKey)
                 {
-                    _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)CurrentKatanVersion,
+                    _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)
+                        Int32.Parse(CurrentKatanVersion.Uid),
                         Int32.Parse(KatanKey)));
                 }
                 InputText = _katanTextAdapter.AltKatanDecryptText(OutputText);
@@ -163,7 +177,7 @@ namespace Katan.ViewModels
 
         public KatanMainViewModel()
         {
-            CurrentKatanVersion = (int)Core.Katan.Version.Version32;
+            _katanStatistic = new KatanStatistic();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

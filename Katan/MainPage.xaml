@@ -46,7 +46,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <WrapPanel Name="Information" Grid.Column="0" >
+            <WrapPanel Name="Information" Grid.Column="0" Background="Red">
+                <Label Content="{Binding KatanStatistic.RoundEncryptionTime, Mode=TwoWay}"></Label>
+                <Label Content="{Binding KatanStatistic.TotalEncryptionTime, Mode=TwoWay}"></Label>
+                <Label Content="{Binding KatanStatistic.SizeInfoEncrypt, Mode=TwoWay}"></Label>
             </WrapPanel>
             <WrapPanel Name="Navigation" Grid.Column ="1" >
             </WrapPanel>
@@ -81,22 +84,27 @@
                         <ComboBox Margin="50 0 0 0" Height="200" Width="200" Background="Red"
                                   HorizontalAlignment="Center"
                                   HorizontalContentAlignment="Center"
-                                  VerticalAlignment="Stretch">
-                            <ComboBoxItem IsSelected="True">
+                                  VerticalAlignment="Stretch"
+                                  SelectedValue="{Binding  CurrentKatanVersion}">
+                            <ComboBoxItem  Uid="32" IsSelected="True">
                                 <StackPanel Orientation="Vertical">
                                     <Label Content="KATAN32"/>
                                     <Image Source="Resources\lock.png" Height="50" Width="50"/>
                                 </StackPanel>
                             </ComboBoxItem>
+                            <ComboBoxItem Uid="48">
                             <StackPanel Orientation="Vertical">
                                 <Label Content="KATAN48"/>
                                 <Image Source="Resources\lock.png" Height="50" Width="50"/>
                             </StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <Label Content="KATAN64"/>
-                                <Image Source="Resources\lock.png"  Height="50" Width="50"
+                                </ComboBoxItem>
+                            <ComboBoxItem Uid="64">
+                                <StackPanel Orientation="Vertical" >
+                                    <Label Content="KATAN64"/>
+                                    <Image Source="Resources\lock.png"  Height="50" Width="50"
                                        />
-                            </StackPanel>
+                                </StackPanel>
+                            </ComboBoxItem>
                         </ComboBox>
                     </WrapPanel>
                 </Grid>
