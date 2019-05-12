@@ -40,12 +40,14 @@ namespace Katan.Core
         {
             get => _version;
         }
+        public int PublicKey;
 
         #endregion
 
         #region Katan Initialize Methods
         public Katan(Version version, int key)
         {
+            PublicKey = key;
             _timer = new Stopwatch();
             _key = Cryptography.GenerateKey(key);
             switch (version)

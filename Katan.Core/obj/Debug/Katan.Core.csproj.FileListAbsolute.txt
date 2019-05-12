@@ -9,3 +9,4 @@ D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.Core\bin\Debug\Kata
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.Core\obj\Debug\Katan.Core.csproj.CoreCompileInputs.cache
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.Core\obj\Debug\Katan.Core.dll
 D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.Core\obj\Debug\Katan.Core.pdb
+D:\Univer\3kurs_2sem\Course_Works\Security\Katan\Katan\Katan.Core\obj\Debug\Katan.Core.csprojAssemblyReference.cache

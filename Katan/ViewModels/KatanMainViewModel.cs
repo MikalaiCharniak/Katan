@@ -74,7 +74,8 @@ namespace Katan.ViewModels
             try
             {
                 if (_katanTextAdapter == null ||
-                    (int)_katanTextAdapter.Katan.KatanVersion != CurrentKatanVersion)
+                    (int)_katanTextAdapter.Katan.KatanVersion != CurrentKatanVersion
+                    || Int32.Parse(KatanKey) != _katanTextAdapter.Katan.PublicKey)
                 {
                     _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)CurrentKatanVersion,
                         Int32.Parse(KatanKey)));
@@ -105,7 +106,8 @@ namespace Katan.ViewModels
             try
             {
                 if (_katanTextAdapter == null ||
-                (int)_katanTextAdapter.Katan.KatanVersion != CurrentKatanVersion)
+                (int)_katanTextAdapter.Katan.KatanVersion != CurrentKatanVersion
+                 || Int32.Parse(KatanKey) != _katanTextAdapter.Katan.PublicKey)
                 {
                     _katanTextAdapter = new KatanTextAdapter(new Core.Katan((Core.Katan.Version)CurrentKatanVersion,
                         Int32.Parse(KatanKey)));
